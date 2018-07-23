@@ -1,0 +1,37 @@
+Cache simulator by Jonathan Lafiandra
+Trace reader by CS4290 TAs
+
+To compile with g++ do:
+    make
+
+To compile with cc do:
+    make C=1
+
+In any case, to clean do:
+    make clean
+
+
+To run after making, type:
+./cachesim < traces/file.trace
+
+with file being either:
+	astar
+	bzip2
+	mcf
+	perlbench
+
+Extra Parameters:
+Example: ./cachesim -c 13 -b 6 -s 2 < traces/astar.trace
+-c ~ Cache Size(-c 12 = 2^12 = 4096 Bytes in the cache)
+-b ~ Block size(-b 2 = 2^2 = 4 bytes in a block)
+-s ~ Set size(-s 0 = Directly Mapped Cache, S=C-B = Fully Associative)
+
+-t ~ 0 = No Prefetcher
+     1 = Markov Prefetcher
+     2 = n+1 Prefetcher(Nextline Prefetcher)
+     3 = Hybrid of Markov and n+1
+
+Prefetch buffer holds 32 Cache Blocks.
+
+-p ~Denotes # of rows in Markov Prefetcher
+
